@@ -7,25 +7,21 @@ var SummonerStore = createStore({
         'SET_CURRENT_SUMMONER': '_handleSetCurrentSummoner'
     },
     initialize: function () {
-        this.currentSummonerName = null;
-        this.currentSummonerId = null;
+        this.currentSummoner= null;
     },
     _handleSetCurrentSummoner: function (summoner) {
         console.log(summoner);
-        this.currentSummonerName = summoner.name;
-        this.currentSummonerId = summoner.id;
+        this.currentSummoner = summoner;
 
         this.emitChange();
     },
     dehydrate: function () {
         return {
-            currentSummonerName: this.currentSummonerName,
-            currentSummonerId: this.currentSummonerId
+            currentSummoner: this.currentSummoner
         };
     },
     rehydrate: function (state) {
-        this.currentSummonerName = state.currentSummonerName;
-        this.currentSummonerId = state.currentSummonerId;
+        this.currentSummoner = state.currentSummoner;
     }
 });
 

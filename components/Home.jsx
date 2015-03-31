@@ -20,7 +20,7 @@ var Home = React.createClass({
     },
     onChange: function () {
         var store = this.getStore(SummonerStore);
-        this.setState({currentSummonerName: store.currentSummonerName, currentSummonerId: store.currentSummonerId});
+        this.setState({currentSummonerName: store.currentSummoner.name, currentSummonerId: store.currentSummoner.id});
     },
     handleNewTodoKeyDown: function (event) {
         if (event.which !== ENTER_KEY) {
