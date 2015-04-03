@@ -26,10 +26,10 @@ module.exports = {
     },
     create: function(req, resource, params, body, config, callback) { 
         setTimeout(function () {
-            console.log(req+resource+params+config);
-            callback();
-            /*var url = 'http://localhost:5000/public_client_api/summoner/name/' + params.name;
-            request(url, function (error, response, body) {     
+  
+            var url = 'http://localhost:5000/public_client_api/tournament/create';
+            var body = {'tournamentName': params.name, 'summoners': params.summoners};
+            request.post({url:url, form: body}, function (error, response, body) {     
                 if (!error && response.statusCode === 200) {
                     var res = JSON.parse(body);
                     if(callback){ 
@@ -39,7 +39,7 @@ module.exports = {
                 else{
                     console.log(error);
                 }
-            });     */
+            }); 
         }, 10);
     }
     // update: function(resource, params, body, config, callback) {},

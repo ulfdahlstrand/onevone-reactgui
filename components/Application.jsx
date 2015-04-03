@@ -1,12 +1,14 @@
 'use strict';
 var React = require('react');
-var Nav = require('./Nav.jsx');
-var Home = require('./Home.jsx');
-var About = require('./About.jsx');
-var Tournament = require('./Tournament.jsx');
-var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
 var FluxibleMixin = require('fluxible').FluxibleMixin;
+
+var Nav = require('./Nav.jsx');
+var SearchSummoner = require('./SearchSummoner.jsx');
+var About = require('./About.jsx');
+var Tournament = require('./Tournament.jsx');
+var CreateTournament = require('./CreateTournament.jsx');
+var ApplicationStore = require('../stores/ApplicationStore');
 
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
@@ -33,7 +35,7 @@ var Application = React.createClass({
 
         switch (this.state.currentPageName) {
             case 'home':
-                output = <Home/>;
+                output = <SearchSummoner/>;
                 break;
             case 'about':
                 output = <About/>;
@@ -41,6 +43,11 @@ var Application = React.createClass({
             case 'tournament':
                 output = <Tournament tournamentId={this.state.route.params.id} />;
                 break;
+            case 'create-tournament':
+                output = <CreateTournament/>;
+                break;
+
+
         }
         return (
             <div>

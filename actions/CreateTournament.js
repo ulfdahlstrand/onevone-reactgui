@@ -5,12 +5,10 @@
 'use strict';
 
 module.exports = function (context, payload, done) {
-    context.service.read('summoner', payload, {}, function (err, summoner) {
-    	if(summoner){
-    		context.dispatch('SET_CURRENT_SUMMONER', summoner);
+   context.service.create('tournament', payload, {}, function (err, tournament) {
+    	if(tournament){
+    		context.dispatch('SET_CURRENT_TOURNAMENT', tournament);
     	}
     	done();
     });
-
-
 };

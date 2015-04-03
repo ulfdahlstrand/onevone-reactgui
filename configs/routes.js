@@ -19,6 +19,14 @@ module.exports = {
         showInNav: true,
         action: loadPage
     },
+    tournamentCreate: {
+        path: '/tournament/create',
+        method: 'get',
+        page: 'create-tournament',
+        title: 'Create Tournament',
+        showInNav: false,
+        action: loadPage
+    },
     tournament: {
         path: '/tournament/:id',
         method: 'get',

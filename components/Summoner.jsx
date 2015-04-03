@@ -29,10 +29,8 @@ var MatchListItem = React.createClass({
         
     },
    componentDidMount: function() {
-    var summonerId = this.props.summonerId;
- 
-
-    console.log(summonerId);
+        var summonerId = this.props.summonerId;
+     
     	this.executeAction(AddSummoner, {
             id :  summonerId
         });  
