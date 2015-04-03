@@ -1,13 +1,13 @@
 'use strict';
 var TournamentStore = require('../stores/TournamentStore');
-var getTournament = require('../actions/GetTournament');
+var GetTournament = require('../actions/GetTournament');
 var TournamentListItem = require('../components/TournamentListItem');
 var React = require('react');
 var FluxibleMixin = require('fluxible').FluxibleMixin;
 
 function getMatchesListItem(match) {
     return (
-        <TournamentListItem matchId={match}/>
+        <TournamentListItem key ={match.gameId} match={match}/>
     );
 }
 
@@ -15,11 +15,10 @@ var Tournament = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
         storeListeners: [TournamentStore]
-        
     },   
     getInitialState: function () {
         return {
-            tournamentId :'54fa433dd8bbc8e48a0c946b',
+            tournamentId :null,
             tournamentName: null,
             matches: []
         };
@@ -29,7 +28,8 @@ var Tournament = React.createClass({
         this.setState({tournamentName: store.currentTournament.name, matches: store.currentTournament.matches});
     },
     componentDidMount: function() {
-        this.executeAction(getTournament, {
+        this.state.tournamentId = this.props.tournamentId;
+        this.executeAction(GetTournament, {
             tournamentId : this.state.tournamentId   
         });
         

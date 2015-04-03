@@ -8,6 +8,7 @@ module.exports = {
         method: 'get',
         page: 'home',
         title: 'Home',
+        showInNav: true,
         action: loadPage
     },
     about: {
@@ -15,13 +16,15 @@ module.exports = {
         method: 'get',
         page: 'about',
         title: 'About',
+        showInNav: true,
         action: loadPage
     },
     tournament: {
-        path: '/tournament',
+        path: '/tournament/:id',
         method: 'get',
         page: 'tournament',
         title: 'Tournament',
+        showInNav: false,
         action: loadPage
     }
 };

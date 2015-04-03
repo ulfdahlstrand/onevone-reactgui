@@ -16,16 +16,18 @@ var Nav = React.createClass({
         var linkHTML = Object.keys(links).map(function (name) {
             var className = '';
             var link = links[name];
+            if(link.showInNav){
+                if (selected === name) {
+                    className = 'pure-menu-selected';
+                }
 
-            if (selected === name) {
-                className = 'pure-menu-selected';
+                return (
+                    <li className={className} key={link.path}>
+                        <NavLink routeName={link.page}>{link.title}</NavLink>
+                    </li>
+                ); 
             }
 
-            return (
-                <li className={className} key={link.path}>
-                    <NavLink routeName={link.page}>{link.title}</NavLink>
-                </li>
-            );
         });
 
         return (

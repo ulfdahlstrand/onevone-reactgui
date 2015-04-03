@@ -18,7 +18,7 @@ var ApplicationStore = createStore({
         if (this.currentRoute && (this.currentRoute.url === route.url)) {
             return;
         }
-
+        
         var pageName = route.config.page;
         var page = this.pages[pageName];
 

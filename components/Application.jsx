@@ -30,6 +30,7 @@ var Application = React.createClass({
     },
     render: function () {
         var output = '';
+
         switch (this.state.currentPageName) {
             case 'home':
                 output = <Home/>;
@@ -38,7 +39,7 @@ var Application = React.createClass({
                 output = <About/>;
                 break;
             case 'tournament':
-                output = <Tournament/>;
+                output = <Tournament tournamentId={this.state.route.params.id} />;
                 break;
         }
         return (

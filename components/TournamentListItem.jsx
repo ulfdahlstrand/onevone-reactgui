@@ -1,17 +1,25 @@
 'use strict';
 var React = require('react');
-var TournamentStore = require('../stores/TournamentStore');
 var ReactPropTypes = React.PropTypes;
 var FluxibleMixin = require('fluxible').FluxibleMixin;
 
-var MatchListItem = React.createClass({  
+var Summoner = require('../components/Summoner');
+
+function getSummonerListItem(summonerId) {
+    return (
+        <Summoner key={summonerId} summonerId={summonerId}/>
+    );
+}
+
+var MatchListItem = React.createClass({   
     propTypes: {
         message: ReactPropTypes.object
     },
     render: function() {
         var match = this.props.match;
+        var summoners = match.summonerIds.map(getSummonerListItem);
         return (
-            <div>{match._id}</div>
+            <ul>{summoners}</ul>
         );
     }
 });
