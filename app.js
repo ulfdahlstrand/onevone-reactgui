@@ -22,5 +22,7 @@ app.plug(routrPlugin({
 // register stores
 app.registerStore(require('./stores/ApplicationStore'));
 app.registerStore(require('./stores/SummonerStore'));
+app.registerStore(require('./stores/TournamentStore'));
+
 
 module.exports = app;

@@ -16,5 +16,12 @@ module.exports = {
         page: 'about',
         title: 'About',
         action: loadPage
+    },
+    tournament: {
+        path: '/tournament',
+        method: 'get',
+        page: 'tournament',
+        title: 'Tournament',
+        action: loadPage
     }
 };
