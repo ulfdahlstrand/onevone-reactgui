@@ -1,28 +1,23 @@
-'use strict';
+require('node-jsx').install({ extension: '.js' });
 
-var React = require('react');
-var Fluxible = require('fluxible');
-var routrPlugin = require('fluxible-plugin-routr');
-var fetchrPlugin = require('fluxible-plugin-fetchr');
+var path = require('path');
+var express = require('express');
+var bodyParser = require('body-parser');
 
-// create new fluxible instance
-var app = new Fluxible({
-    component: React.createFactory(require('./components/Application.jsx'))
+var app = express();
+
+var publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
+app.use('/src', function (req, res) {
+  res.redirect('http://localhost:3001/src' + req.path);
 });
 
-app.plug(fetchrPlugin({
-    xhrPath: '/api'
-}));
+app.use('/', require('./server'));
 
-// add routes to the routr plugin
-app.plug(routrPlugin({
-    routes: require('./configs/routes')
-}));
-
-// register stores
-app.registerStore(require('./stores/ApplicationStore'));
-app.registerStore(require('./stores/SummonerStore'));
-app.registerStore(require('./stores/TournamentStore'));
+app.set('port', process.env.PORT || 3000);
 
 
-module.exports = app;
+app.listen(app.get('port'), function () {
+  console.log('The main server is running at http://localhost:' + this.address().port);
+});
