@@ -57,7 +57,18 @@ var CreateTournament = React.createClass({
         .end(function(err, res){
           var tournament = res.body;
           if(tournament && !err){
-            self.transitionTo('tournament',{ id: tournament._id });
+            self.startTournament(tournament._id);
+          }
+        });
+    },
+    startTournament: function(tournamentId){
+      var self = this;
+      request
+        .get('http://localhost:5000/public_client_api/tournament/'+ tournamentId+ '/start')
+        .end(function(err, res){
+          var tournament = res.body;
+          if(tournament && !err){
+            self.transitionTo('tournament',{ id: tournamentId });
           }
         });
     },

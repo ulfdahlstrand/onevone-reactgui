@@ -19,11 +19,15 @@ var SummonerTournaments = React.createClass({
           summonerName: '',
           matches:[]
         };
-    },
-    loadTournament: function(tournamentId){
+    }, 
+    componentDidMount: function(e){
       var self = this;
+      this.setState({
+        tournamentId: this.props.params.id
+      });
+
       request
-        .get('http://localhost:5000/public_client_api/tournament/'+ tournamentId)
+        .get('http://localhost:5000/public_client_api/tournament/'+ this.props.params.id)
         .end(function(err, res){
           var tournament = res.body;
           if(tournament && !err){
@@ -41,36 +45,9 @@ var SummonerTournaments = React.createClass({
             });
           }
         });
-    }, 
-    componentDidMount: function(e){
-      this.setState({
-        tournamentId: this.props.params.id
-      });
-      this.loadTournament(this.state.tournamentId);
-    },
-    handleStartTournament: function(e){
-      var self = this;
-      request
-        .get('http://localhost:5000/public_client_api/tournament/'+ this.props.params.id + '/start')
-        .end(function(err, res){
-          var tournament = res.body;
-          if(tournament && !err){
-            this.loadTournament(self.state.tournamentId);
-          }
-        });
-      
-    },
-    getStartTournamentButton: function () {
-      if(!this.state.tournamentStarted){
-        return (
-          <button onClick={this.handleStartTournament}>Start Tournament</button>
-
-        );
-      }
     },
     render: function() {
       var matchesListItems = this.state.matches.map(getMatchesListItem);
-      var startTournamentButton = this.getStartTournamentButton();
       var summonersInTournamnet = this.state.summonersInTournamnet.map(getSummonersInTournamnet);
       return (
         <div>
@@ -80,8 +57,6 @@ var SummonerTournaments = React.createClass({
 
           <h3>Matches in Tournament</h3>
           <ul>{ matchesListItems }</ul>
-
-          <div>{ startTournamentButton }</div>
         </div>
       );
     }
