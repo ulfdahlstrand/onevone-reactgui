@@ -9,7 +9,7 @@ var Summoner = require('./summoner');
 
 var ENTER_KEY = 13;
 
-var CreateTournament = React.createClass({
+var TournamentCreate = React.createClass({
     mixins: [Navigation],
     getInitialState: function(){
         return { 
@@ -110,4 +110,4 @@ function getSummonersInTournamnet(summonerId){
 
 }
 
-module.exports = CreateTournament;
+module.exports = TournamentCreate;

@@ -10,7 +10,8 @@ var Main = require('./components/main'),
     FindSummoner = require('./components/findSummoner'),
     SummonerTournaments = require('./components/summonerTournaments'),
     Tournament = require('./components/tournament'),
-    CreateTournament = require('./components/createTournament'),
+    TournamentCreate = require('./components/tournamentCreate'),
+    TournamentStandings = require('./components/tournamentStandings'),
     NotFound = require('./components/not-found');
 
 var routes = (
@@ -18,7 +19,8 @@ var routes = (
       <Route name="summoner" path="summoner/:id" handler={Component} />
       <Route name="summonerTournaments" path="summoner/:id/tournaments" handler={SummonerTournaments} />
       <Route name="findSummoner" path="findSummoner" handler={FindSummoner} />
-      <Route name="createTournament" path="tournament/create" handler={CreateTournament} />
+      <Route name="tournamentCreate" path="tournament/create" handler={TournamentCreate} />
+      <Route name="tournamentStandings" path="tournament/:id/standings" handler={TournamentStandings} />
       <Route name="tournament" path="tournament/:id" handler={Tournament} />
       
       <NotFoundRoute handler={NotFound} />

@@ -18,7 +18,7 @@ var Main = React.createClass({
         <Navbar>
           <Nav >
             <NavItem eventKey="findSummoner" href="#" onSelect={this.onSelect}>FindSummoner</NavItem>
-            <NavItem eventKey="createTournament" href="#" onSelect={this.onSelect}>Create tournament</NavItem>
+            <NavItem eventKey="tournamentCreate" href="#" onSelect={this.onSelect}>Create tournament</NavItem>
           </Nav>
           <Nav >
           </Nav>
