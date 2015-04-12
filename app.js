@@ -13,7 +13,7 @@ app.use('/src', function (req, res) {
   res.redirect('http://localhost:3001/src' + req.path);
 });
 
-app.use('/', require('./server'));
+app.use('/', require('./client'));
 
 app.set('port', process.env.PORT || 3000);
 
