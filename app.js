@@ -16,8 +16,6 @@ app.use('/src', function (req, res) {
 app.use('/', require('./client'));
 
 app.set('port', process.env.PORT || 3000);
-
-
 app.listen(app.get('port'), function () {
   console.log('The main server is running at http://localhost:' + this.address().port);
 });
