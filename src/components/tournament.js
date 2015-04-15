@@ -3,6 +3,7 @@ var React = require('react');
 var Router = require('react-router');
 var Navigation = Router.Navigation;
 var request = require('superagent');
+var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
 
 var MatchListItem = require('./matchListItem');
 var Summoner = require('./summoner');
@@ -27,7 +28,7 @@ var SummonerTournaments = React.createClass({
       });
 
       request
-        .get('http://localhost:5000/public_client_api/tournament/'+ this.props.params.id)
+        .get(apiBaseUrl + '/public_client_api/tournament/'+ this.props.params.id)
         .end(function(err, res){
           var tournament = res.body;
           if(tournament && !err){

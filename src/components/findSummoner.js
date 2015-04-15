@@ -4,7 +4,7 @@ var Router = require('react-router');
 var Navigation = Router.Navigation;
 var request = require('superagent');
 var ENTER_KEY = 13;
-
+var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
 var FindSummoner = React.createClass({
     mixins: [Navigation],
     getInitialState: function(){
@@ -25,7 +25,7 @@ var FindSummoner = React.createClass({
     searchSummoner: function(e){
       var self = this;
       request
-        .get('http://localhost:5000/public_client_api/summoner/name/' + this.state.summonerName)
+        .get(apiBaseUrl + '/public_client_api/summoner/name/' + this.state.summonerName)
         .end(function(err, res){
           var summoner = res.body;
           if(summoner && !err){

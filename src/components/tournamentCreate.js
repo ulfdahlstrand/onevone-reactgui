@@ -8,6 +8,7 @@ var _ = require('underscore');
 var Summoner = require('./summoner');
 
 var ENTER_KEY = 13;
+var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
 
 var TournamentCreate = React.createClass({
     mixins: [Navigation],
@@ -36,7 +37,7 @@ var TournamentCreate = React.createClass({
     searchSummoner: function(e){
       var self = this;
       request
-        .get('http://localhost:5000/public_client_api/summoner/name/' + this.state.summonerName)
+        .get(apiBaseUrl + '/public_client_api/summoner/name/' + this.state.summonerName)
         .end(function(err, res){
           var summoner = res.body;
           if(summoner && !err){
@@ -51,7 +52,7 @@ var TournamentCreate = React.createClass({
     handleSaveTournament: function(e){
       var self = this;
       request
-      .post('http://localhost:5000/public_client_api/tournament/create')
+      .post(apiBaseUrl + '/public_client_api/tournament/create')
         .set('Content-Type', 'application/json')
         .send({'tournamentName': this.state.tournamentName, 'summoners': this.state.summonersInTournamnet})
         .end(function(err, res){
@@ -64,7 +65,7 @@ var TournamentCreate = React.createClass({
     startTournament: function(tournamentId){
       var self = this;
       request
-        .get('http://localhost:5000/public_client_api/tournament/'+ tournamentId+ '/start')
+        .get(apiBaseUrl +'/public_client_api/tournament/'+ tournamentId+ '/start')
         .end(function(err, res){
           var tournament = res.body;
           if(tournament && !err){

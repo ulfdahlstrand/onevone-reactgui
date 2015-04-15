@@ -4,6 +4,7 @@ var Router = require('react-router');
 var Navigation = Router.Navigation;
 var request = require('superagent');
 var _ = require('underscore');
+var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
 
 var SummonerTournaments = React.createClass({
     mixins: [Navigation],
@@ -26,7 +27,7 @@ var SummonerTournaments = React.createClass({
       });
 
       request
-        .get('http://localhost:5000/public_client_api/summoner/'+ this.props.id)
+        .get(apiBaseUrl + '/public_client_api/summoner/'+ this.props.id)
         .end(function(err, res){
           var summoner = res.body;
           if(summoner && !err){
