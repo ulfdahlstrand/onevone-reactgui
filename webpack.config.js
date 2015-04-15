@@ -2,14 +2,12 @@ var webpack = require('webpack');
 module.exports = {
   devtool: "#inline-source-map",
   entry: [
-    "webpack-dev-server/client?http://localhost:3001",
     "webpack/hot/only-dev-server",
     "./src/app.js"
   ],
   output: {
-    path: __dirname + "/src",
-    filename: 'bundle.js',
-    publicPath: "http://localhost:3001/src/"
+    path: __dirname + "/public/build",
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

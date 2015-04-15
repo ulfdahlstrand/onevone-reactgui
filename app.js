@@ -7,11 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var publicPath = path.join(__dirname, 'public');
-app.use(express.static(publicPath));
-
-app.use('/src', function (req, res) {
-  res.redirect('http://localhost:3001/src' + req.path);
-});
+app.use('/public', express.static(publicPath));
 
 app.use('/', require('./client'));
 

@@ -7,7 +7,9 @@
   "scripts": {
     "test": "gulp tdd --harmony",
     "start": "NODE_ENV=development;DEBUG=app ./node_modules/nodemon/bin/nodemon.js ./app.js",
-    "dev-server": "node dev-server.js"
+    "dev-server": "node dev-server.js",
+    "watch": "node ./node_modules/webpack/bin/webpack.js --watch",
+    "postinstall": "node ./node_modules/webpack/bin/webpack.js --p"
   },
   "author": "",
   "license": "MIT",

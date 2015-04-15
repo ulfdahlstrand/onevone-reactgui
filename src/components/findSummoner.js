@@ -36,7 +36,7 @@ var FindSummoner = React.createClass({
     render: function() {
         return (
           <div>
-              <img id='logo' src='images/LOLVERSUS_logo_NEG.png'/>
+              <img id='logo' src='/public/images/LOLVERSUS_logo_NEG.png'/>
               <input
                   placeholder="Type summoner name"
                     value={this.state.summonerName}
