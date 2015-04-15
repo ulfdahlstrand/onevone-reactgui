@@ -8,7 +8,7 @@ var _ = require('underscore');
 var Summoner = require('./summoner');
 
 var ENTER_KEY = 13;
-var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
+var apiBaseUrl = 'https://onevone-demo.herokuapp.com'  || 'http://localhost:5000';
 
 var TournamentCreate = React.createClass({
     mixins: [Navigation],

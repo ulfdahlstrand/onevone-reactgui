@@ -5,7 +5,7 @@ var Navigation = Router.Navigation;
 var request = require('superagent');
 
 var Summoner = require('./summoner');
-var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
+var apiBaseUrl = 'https://onevone-demo.herokuapp.com' || 'http://localhost:5000';
 
 var TournamentStandings = React.createClass({
     mixins: [Navigation],

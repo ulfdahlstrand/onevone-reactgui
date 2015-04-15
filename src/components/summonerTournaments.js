@@ -3,7 +3,7 @@ var React = require('react');
 var Router = require('react-router');
 var Navigation = Router.Navigation;
 var request = require('superagent');
-var apiBaseUrl = process.env.APIBASEURL || 'http://localhost:5000';
+var apiBaseUrl = 'https://onevone-demo.herokuapp.com'  || 'http://localhost:5000';
 
 var TournamentListItem = require('./tournamentListItem');
 
