@@ -1,2 +1,1 @@
-web: npn run start
-DEV-SERVER: npn run dev-server
+web: npm run start
