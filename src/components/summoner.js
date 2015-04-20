@@ -41,18 +41,18 @@ var SummonerTournaments = React.createClass({
     render: function() {
       var classForSummoner = getClassForSummoner(this.state);
       return (
-        <span className={classForSummoner}>{ this.state.summonerName }</span>
+        <div className={classForSummoner}>{ this.state.summonerName }</div>
       );
     }
 });
 
 function getClassForSummoner(state){
-  var classForSummoner = 'unplayed';
+  var classForSummoner = 'text unplayed';
 
   if(_.contains(state.winners, state.summonerId)){
-    classForSummoner = 'winner';
+    classForSummoner = 'text winner';
   }else if(_.contains(state.losers, state.summonerId)){
-    classForSummoner = 'loser';
+    classForSummoner = 'text loser';
   }
   return classForSummoner;
 }

@@ -8,7 +8,11 @@ var Summoner = require('./summoner');
 var matchListItem = React.createClass({
     getInitialState: function(){
         return { 
-          summonerIds: []
+          summonerIds: [],
+          tournamentName: '',
+          winners: [],
+          losers: []
+
         };
     },
     componentDidMount: function(e){
@@ -22,12 +26,13 @@ var matchListItem = React.createClass({
     render: function() {
       var firstCompetitor = this.state.summonerIds[0];
       var secondCompetitor = this.state.summonerIds[1];
-
+      var circle =getCircleIcon(this.state.winners);
+      console.log(circle);
       if(firstCompetitor && secondCompetitor){
         return (
           <li>
             <Summoner id={firstCompetitor} winners={this.state.winners} losers={this.state.losers} /> 
-            <span> vs </span> 
+            { circle }
             <Summoner id={secondCompetitor} winners={this.state.winners} losers={this.state.losers}/> 
           </li>
         );
@@ -35,11 +40,28 @@ var matchListItem = React.createClass({
       else{
         return (
           <li>
-            <span>{ firstCompetitor }</span> <span> vs </span> <span>{ secondCompetitor }</span> 
+            <div className='text left'>{ firstCompetitor }</div>
+            { circle }
+            <div className='text right'>{ secondCompetitor }</div>
           </li>
+
         );
       }
     }
 });
+
+function getCircleIcon(winners) {
+    if(winners && winners.length > 0){
+      return (
+         <div className='circle'><div className='thropty'></div></div> 
+      );
+
+    }else{
+      return (
+        <div className='circle'><p>vs</p></div> 
+      );
+    }
+
+}
 
 module.exports = matchListItem;

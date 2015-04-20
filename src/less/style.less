@@ -4,7 +4,7 @@ body {
 
 * {
   font-family: Helvetica, Arial;
-  color: #333;
+
 }
 
 span.highlight {
@@ -23,14 +23,6 @@ input {
   width:600px;
 }
 
-.winner{ 
-  color: #0000FF
-}
-
-.loser{ 
-  color: #FF0000 
-}
-
 .nowhere {
   h1 {
     position: relative;
@@ -45,4 +37,106 @@ input {
     right: 0;
     bottom: 0;
   }
+}
+
+/* */
+.list-box {
+    font-family: helvetica, sanserif;
+    font-size: 12px;
+    width: 400px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: text-top;
+    margin:10px;
+}
+
+.list-box .header {
+    background-color: #DCDDDE;
+    padding:10px;
+    color: #17191D;
+    font-size: 26px;
+}
+.list-box .content {
+    background-color: #17191D;
+}
+
+.list-header-arrow{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-content-text{
+    padding:10px;
+}
+
+.list-content-text ul{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    color: #A1D0E4;
+    font-size: 16px;
+
+}
+
+.list-content-text li{
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    background-color: #262A30;
+}
+
+
+.list-content-text li div{ 
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #DCDDDE;
+}
+
+.circle { 
+   width: 40px;
+   height: 40px;
+   background-color: #A1D0E4; 
+   -moz-border-radius: 20px; 
+   -webkit-border-radius: 20px; 
+   border-radius: 20px;
+   margin: 5px;
+}
+
+.circle p{
+    color: #262A30;
+    margin-top: 9px;
+    ext-align: center;
+}
+
+.thropty{
+    background:
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACLElEQVRIS8WW4TEEQRCF32VABmRABIiAy4AIEIETASJABIjgLgMycBmQAfVtbV/1tZ7b2T1V239Q09Ov+73XOyYaKSYj4cqAXySdFZoY2txPod6rpKkVnUk6knQSkrm8DXCsdyfpTdLMA59KOkyAbwfKcZM0/Snp2QMfS5oniSW6anuJbFEPFhZ2sCeJbpj4w1X9T+ADSe+S9iUtfUdfkq4lPVUCf7d5OxvG9/XPJaHxLvn+AGdT7MIVgn5kyMIapGAWi2DWR0k0OY3AV5IuWyqs0KY1awpIIieLZm3cAVI+SLqPwJnOrBnuJJb+YoJE41BpwTZwn1jTNwLzN13RKVoT5naPwzlyeI2hMX6AGve2F2mIc4zVRLR7RnfmbCikAYKCGd3RuDDQ0JwBG91MZOaJBmNSnGk08pON8O72+mI+GOGOsZR+DkmCYqPFLlqz0AcIuhHsPQW9+33jyMcdvy0psE2NzlADCBP1CZvODNd8NHyB0gMAfawWBmEiWCjta2wIiZgORpCJFTJZVrmbXh4+bwTgTA1lNcF0UA8oER+e1Fy+sIFBEeDQZjtdasCcCyiSWRN/8rveWuiCZoqgOfSbqWIxJIFWdpZmods/OGv5XcAkMznF0BgKS4+CnaExTa5WJ6OnBtjuMTUT88Hgdx9MyO4y8Zp7S5r0Aa4xVnXONsD2KR1UY9CldqxRgOPD0XuAPhdq//+qqlmVFKjtMlBVzaqkLqQh56MB/wJXsnkfyfq8UQAAAABJRU5ErkJggg==)
+    no-repeat
+    left center;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    margin-top:11px;
+}
+
+
+.list-content-text li .text{
+    width:100px;
+    text-align: center;
+}
+
+.list-content-text li .winner{
+    
+
+}
+
+.list-content-text li .loser{
+    color:#4a585b;
 }

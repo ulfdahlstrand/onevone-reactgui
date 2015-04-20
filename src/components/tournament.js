@@ -53,11 +53,36 @@ var SummonerTournaments = React.createClass({
       return (
         <div>
           <h2>{ this.state.tournamentName }</h2>
-          <h3>Summoner in Tournament</h3>
-          <ul>{ summonersInTournamnet }</ul>
 
-          <h3>Matches in Tournament</h3>
-          <ul>{ matchesListItems }</ul>
+          <div className='list-box'>
+            <div className='header'>
+              <div className='list-header-text'>Summoners in tournament</div>  
+            </div>
+            <div className='content'>
+              <div className='list-header-arrow arrow-down'></div>
+              <div className='list-content-text'>
+                <ul>
+                  { summonersInTournamnet }
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <div className='list-box'>
+            <div className='header'>
+              <div className='list-header-text'>Matches in tournament</div>  
+            </div>
+            <div className='content'>
+              <div className='list-header-arrow arrow-down'></div>
+              <div className='list-content-text'>
+                <ul>
+                  { matchesListItems }
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
       );
     }
