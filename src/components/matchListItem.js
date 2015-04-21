@@ -40,9 +40,9 @@ var matchListItem = React.createClass({
       else{
         return (
           <li>
-            <div className='text left'>{ firstCompetitor }</div>
+            <div className='text left col-md-1'>{ firstCompetitor }</div>
             { circle }
-            <div className='text right'>{ secondCompetitor }</div>
+            <div className='text right col-md-1'>{ secondCompetitor }</div>
           </li>
 
         );

@@ -51,10 +51,10 @@ var SummonerTournaments = React.createClass({
       var matchesListItems = this.state.matches.map(getMatchesListItem);
       var summonersInTournamnet = this.state.summonersInTournamnet.map(getSummonersInTournamnet);
       return (
-        <div>
+        <div className='col-md-12'>
           <h2>{ this.state.tournamentName }</h2>
 
-          <div className='list-box'>
+          <div className='list-box col-md-4'>
             <div className='header'>
               <div className='list-header-text'>Summoners in tournament</div>  
             </div>
@@ -69,7 +69,7 @@ var SummonerTournaments = React.createClass({
           </div>
 
 
-          <div className='list-box'>
+          <div className='list-box col-md-4'>
             <div className='header'>
               <div className='list-header-text'>Matches in tournament</div>  
             </div>

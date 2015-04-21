@@ -13,8 +13,8 @@ var Main = React.createClass({
     this.transitionTo(eventKey);
   },
   render: function () {
-    return <div className="container">
-      <header>
+    return <div className="container col-md-12">
+      <header className="col-md-12">
         <Navbar>
           <Nav >
             <NavItem eventKey="findSummoner" href="#" onSelect={this.onSelect}>FindSummoner</NavItem>
