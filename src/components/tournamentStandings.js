@@ -2,10 +2,9 @@
 var React = require('react');
 var Router = require('react-router');
 var Navigation = Router.Navigation;
-var request = require('superagent');
+var services = require('./../services');
 
 var Summoner = require('./summoner');
-var apiBaseUrl = 'https://onevone-demo.herokuapp.com' || 'http://localhost:5000';
 
 var TournamentStandings = React.createClass({
     mixins: [Navigation],
@@ -20,16 +19,11 @@ var TournamentStandings = React.createClass({
         tournamentId: this.props.params.id
       });
 
-      request
-        .get(apiBaseUrl + '/public_client_api/tournament/'+ this.props.params.id + '/standings')
-        .end(function(err, res){
-          var standings = res.body;
-          if(standings && !err){
-            self.setState({
+      services.getStandingsForTournamentById(this.props.params.id, function(standings ){
+        self.setState({
               standings: standings
             });
-          }
-        });
+      });
     },
     render: function() {
       var standings = this.state.standings.map(getStandingsInTournamnet);
