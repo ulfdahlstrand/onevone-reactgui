@@ -2,13 +2,9 @@ var App = require("./../core");
 var basePath = '/api';
 var request = require('superagent');
 
-var apiBaseUrl = 'https://onevone-demo.herokuapp.com'  || 'http://localhost:5000';
+var apiBaseUrl = process.env.APIBASEURL  || 'http://localhost:5000';
 
 module.exports = function() {
-	App.Express.get(basePath + "/test", function (req, res) {
-		res.send(process.env.APIBASEURL || 'localhost:3000');
-	});
-
 	App.Express.get(basePath + "/searchSummoner/:summonerName", function (req, result) {
 		request
 	      .get(apiBaseUrl + '/public_client_api/summoner/name/' + req.params.summonerName)
