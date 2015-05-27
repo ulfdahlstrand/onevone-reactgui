@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Dekar';
+  src:  url('/public/fonts/Dekar.otf') format('opentype');
+}
+
 body {
   background: #699096;
 }
@@ -5,6 +10,10 @@ body {
 * {
   font-family: Helvetica, Arial;
 
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Dekar, Helvetica, Arial;
 }
 
 .headerText{
@@ -56,8 +65,6 @@ input {
 .list-box .header {
     background-color: #DCDDDE;
     padding:10px;
-    color: #17191D;
-    font-size: 22px;
 }
 .list-box .content {
     background-color: #17191D;
@@ -66,6 +73,13 @@ input {
 .list-header-arrow{
     margin-left: auto;
     margin-right: auto;
+}
+
+.list-box h2{
+  color: #17191D;
+  font-size: 22px;
+  margin:0;
+  padding:0;
 }
 
 .list-content-text{
@@ -79,6 +93,22 @@ input {
     color: #A1D0E4;
     font-size: 14px;
 
+}
+
+a:link {
+color: #A1D0E4;
+}
+
+a:visited {
+    color: #A1D0E4;
+}
+
+a:hover {
+   color: #A1D0E4;
+}
+
+a:active {
+    color: #A1D0E4;
 }
 
 .list-content-text li{

@@ -28,9 +28,22 @@ var SummonerTournaments = React.createClass({
     render: function() {
         var matchesListItems = this.state.tournaments.map(getTournamentListItem);
         return (
-          <ul>
-            { matchesListItems}
-          </ul>
+          <div className='col-md-12'>
+          
+            <div className='list-box col-md-4'>
+              <div className='header'>
+                <h2>Tournaments</h2>  
+              </div>
+              <div className='content'>
+                <div className='list-header-arrow arrow-down'></div>
+                <div className='list-content-text'>
+                  <ul>
+                    { matchesListItems }
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         );
     }
 });

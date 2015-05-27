@@ -50,7 +50,7 @@ var SummonerTournaments = React.createClass({
 
           <div className='list-box col-md-4'>
             <div className='header'>
-              <div className='list-header-text'>Summoners in tournament</div>  
+              <h2>Summoners in tournament</h2>  
             </div>
             <div className='content'>
               <div className='list-header-arrow arrow-down'></div>
@@ -65,7 +65,7 @@ var SummonerTournaments = React.createClass({
 
           <div className='list-box col-md-4'>
             <div className='header'>
-              <div className='list-header-text'>Matches in tournament</div>  
+              <h2>Matches in tournament</h2>  
             </div>
             <div className='content'>
               <div className='list-header-arrow arrow-down'></div>

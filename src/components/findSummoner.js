@@ -30,17 +30,22 @@ var FindSummoner = React.createClass({
     render: function() {
         return (
           <div>
-              <img id='logo' src='/public/images/LOLVERSUS_logo_NEG.png'/>
-              <input
-                  placeholder="Type summoner name"
-                    value={this.state.summonerName}
-                    onChange={this.handleInputChange}
-                    onBlur={this.searchSummoner}
-                    onKeyDown={this.handleKeyDown}
-                  autoFocus={true}
-              /> 
-            </div>
-        );
+              <div className='col-md-6 col-md-offset-3'>
+                <img id='logo' src='/public/images/LOLVERSUS_logo_NEG.png'/>
+              </div>
+
+              <div className='col-md-4 col-md-offset-4'>
+                <input
+                    placeholder="Type summoner name"
+                      value={this.state.summonerName}
+                      onChange={this.handleInputChange}
+                      onBlur={this.searchSummoner}
+                      onKeyDown={this.handleKeyDown}
+                    autoFocus={true}
+                    className = "col-md-12"
+                /> 
+              </div>
+          </div>);
     }
 });
 

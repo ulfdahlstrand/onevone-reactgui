@@ -27,7 +27,6 @@ var matchListItem = React.createClass({
       var firstCompetitor = this.state.summonerIds[0];
       var secondCompetitor = this.state.summonerIds[1];
       var circle =getCircleIcon(this.state.winners);
-      console.log(circle);
       if(firstCompetitor && secondCompetitor){
         return (
           <li>
