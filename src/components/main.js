@@ -8,13 +8,14 @@ var React = require('react'),
     Navigation = Router.Navigation;
 
 var Main = React.createClass({
-  mixins: [ Navigation ],
+  mixins: [ Navigation, Router.State ],
   onSelect: function (eventKey) {
     this.transitionTo(eventKey);
   },
   render: function () {
-    return <div className="container col-md-12">
-      <header className="col-md-12">
+    var menu = null;
+    if(this.getPathname() !== "/findSummoner"){ // replace with cleaner solution
+      menu = <header className="col-md-12">
         <Navbar>
           <Nav >
             <NavItem eventKey="findSummoner" href="#" onSelect={this.onSelect}>FindSummoner</NavItem>
@@ -23,7 +24,11 @@ var Main = React.createClass({
           <Nav >
           </Nav>
         </Navbar>
-      </header>
+      </header>;
+    }
+   
+    return <div className="container col-md-12">
+      {menu}
       <RouteHandler {...this.props} />
     </div>;
   }
