@@ -10,7 +10,7 @@ var App = {
 
 		var publicPath = path.join(__dirname, 'public');
 		App.Express.use('/public', express.static(publicPath));
-
+		App.Express.use(bodyParser.json());
 		require('./server/api')();
 
 		App.Express.use('/', require('./client'));

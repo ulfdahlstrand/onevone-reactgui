@@ -29,7 +29,7 @@ var Services = function(){
 
   self.getTournamentById = function(tournamentId, callback){
     request
-      .get(apiBaseUrl + '/tournamnet/' + tournamentId)
+      .get(apiBaseUrl + '/tournament/' + tournamentId)
       .end(function(err, res){
         var tournament = res.body;
         if(tournament && !err){
@@ -38,9 +38,33 @@ var Services = function(){
       }); 
   };
 
+  self.createTournament = function(tournament, callback){
+   request
+      .post(apiBaseUrl + '/tournament/create')
+      .set('Content-Type', 'application/json')
+      .send(tournament)
+      .end(function(err, res){
+        var createdtournament = res.body;
+        if(createdtournament && !err){
+          callback(createdtournament);
+        }
+      });
+  };
+
+  self.startTournament = function(tournamentId, callback){
+    request
+      .get(apiBaseUrl +'/tournament/'+ tournamentId + '/start')
+      .end(function(err, res){
+        var tournament = res.body;
+        if(tournament && !err){
+          callback(tournament);
+        }
+      });
+  };
+
   self.getStandingsForTournamentById = function(tournamentId, callback){
     request
-      .get(apiBaseUrl + '/tournamnet/' + tournamentId + '/standings')
+      .get(apiBaseUrl + '/tournament/' + tournamentId + '/standings')
       .end(function(err, res){
         var standings = res.body;
         if(standings && !err){

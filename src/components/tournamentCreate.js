@@ -4,11 +4,11 @@ var Router = require('react-router');
 var Navigation = Router.Navigation;
 var request = require('superagent');
 var _ = require('underscore');
+var services = require('./../services');
 
 var Summoner = require('./summoner');
 
 var ENTER_KEY = 13;
-var apiBaseUrl = 'https://onevone-demo.herokuapp.com'  || 'http://localhost:5000';
 
 var TournamentCreate = React.createClass({
     mixins: [Navigation],
@@ -36,42 +36,32 @@ var TournamentCreate = React.createClass({
     },
     searchSummoner: function(e){
       var self = this;
-      request
-        .get(apiBaseUrl + '/public_client_api/summoner/name/' + this.state.summonerName)
-        .end(function(err, res){
-          var summoner = res.body;
-          if(summoner && !err){
+      services.searchSummoner(this.state.summonerName, function(summoner){
+          if(summoner){
             var summoners = self.state.summonersInTournamnet;
             if(!_.contains(summoners, summoner.id)){
               summoners.push(summoner.id);
               self.setState({summonersInTournamnet: summoners, summonerName: ''});
             }
           }
-        });
+      });
+
     },
     handleSaveTournament: function(e){
       var self = this;
-      request
-      .post(apiBaseUrl + '/public_client_api/tournament/create')
-        .set('Content-Type', 'application/json')
-        .send({'tournamentName': this.state.tournamentName, 'summoners': this.state.summonersInTournamnet})
-        .end(function(err, res){
-          var tournament = res.body;
-          if(tournament && !err){
-            self.startTournament(tournament._id);
-          }
-        });
+      var tournament = {
+        'tournamentName': this.state.tournamentName, 
+        'summoners': this.state.summonersInTournamnet
+      };
+      services.createTournament(tournament, function(createdtournament){
+        self.startTournament(createdtournament._id);
+      });
     },
     startTournament: function(tournamentId){
       var self = this;
-      request
-        .get(apiBaseUrl +'/public_client_api/tournament/'+ tournamentId+ '/start')
-        .end(function(err, res){
-          var tournament = res.body;
-          if(tournament && !err){
-            self.transitionTo('tournament',{ id: tournamentId });
-          }
-        });
+      services.startTournament(tournamentId, function(){
+        self.transitionTo('tournament',{ id: tournamentId });
+      });
     },
     render: function() {
 
