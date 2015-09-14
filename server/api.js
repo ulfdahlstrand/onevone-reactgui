@@ -5,17 +5,17 @@ var request = require('superagent');
 var apiBaseUrl = process.env.APIBASEURL  || 'http://localhost:5000';
 
 module.exports = function() {
-	App.Express.get(basePath + "/searchSummoner/:summonerName", function (req, result) {
+	App.Express.get(basePath + "/search/region/:regionId/summoner/:summonerName", function (req, result) {
 		request
-	      .get(apiBaseUrl + '/public_client_api/summoner/name/' + req.params.summonerName)
+	      .get(apiBaseUrl + '/public_client_api/region/' + req.params.regionId + '/summoner/name/' + req.params.summonerName)
 	      .end(function(err, res){
 	        result.send(res.body);
 	      }); 
 	});	
 
-	App.Express.get(basePath + "/summoner/:id", function (req, result) {
+	App.Express.get(basePath + "/region/:regionId/summoner/:id", function (req, result) {
 		request
-	      .get(apiBaseUrl + '/public_client_api/summoner/' + req.params.id)
+	      .get(apiBaseUrl + '/public_client_api/region/'+ req.params.regionId +'/summoner/' + req.params.id)
 	      .end(function(err, res){
 	        result.send(res.body);
 	      }); 

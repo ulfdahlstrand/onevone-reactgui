@@ -5,9 +5,9 @@ var apiBaseUrl = '/api';//'https://onevone-demo.herokuapp.com'  || 'http://local
 var Services = function(){
   var self = this;
 
-  self.searchSummoner = function(summonerName, callback){
+  self.searchSummoner = function(summonerName, regionId, callback){
     request
-      .get(apiBaseUrl + '/searchSummoner/' + summonerName)
+      .get(apiBaseUrl + '/search/region/'+ regionId +'/summoner/' + summonerName)
       .end(function(err, res){
         var summoner = res.body;
         if(summoner && !err){
@@ -16,9 +16,9 @@ var Services = function(){
       }); 
   };
 
-  self.getSummonerById = function(summonerId, callback){
+  self.getSummonerById = function(summonerId, regionId, callback){
     request
-      .get(apiBaseUrl + '/summoner/' + summonerId)
+      .get(apiBaseUrl + '/region/'+ regionId + '/summoner/' + summonerId)
       .end(function(err, res){
         var summoner = res.body;
         if(summoner && !err){

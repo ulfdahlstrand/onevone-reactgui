@@ -9,7 +9,8 @@ var FindSummoner = React.createClass({
     getInitialState: function(){
         return { 
           summonerName: '', 
-          summoner: null 
+          summoner: null,
+          regionId: 'eune' 
         };
     },
     handleInputChange: function(e){
@@ -23,7 +24,7 @@ var FindSummoner = React.createClass({
     },
     searchSummoner: function(e){
       var self = this;
-      services.searchSummoner(this.state.summonerName, function(summoner){
+      services.searchSummoner(this.state.summonerName, this.state.regionId, function(summoner){
         self.transitionTo('summonerTournaments',{ id: summoner.id });
       });
     },

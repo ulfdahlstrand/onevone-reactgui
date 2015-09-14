@@ -13,7 +13,8 @@ var SummonerTournaments = React.createClass({
           summonerId: '',
           summonerName: '',
           winners: [],
-          losers: []
+          losers: [],
+          regionId: 'eune' 
         };
     },
     componentDidMount: function(e){
@@ -25,7 +26,7 @@ var SummonerTournaments = React.createClass({
         losers: this.props.losers
       });
 
-      services.getSummonerById(this.props.id, function(summoner ){
+      services.getSummonerById(this.props.id, this.props.regionId, function( summoner ){
         self.setState({
           summoner: summoner, 
           summonerName: summoner.name
